@@ -118,7 +118,7 @@ Maps each mission id to a corresponding finite state machine, Loops on each curr
 
 ### Scheduler_Node
 
-Takes task ID, manages the available time for a series of tasks and generates the current task ID.
+Takes task ID to schedule it, manages the available time for a series of tasks and determines what task to be executed right now.
 
 
 #### Subscribed Topics
