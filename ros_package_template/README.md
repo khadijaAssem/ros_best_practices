@@ -25,41 +25,43 @@ The mission planning module package has been tested under [ROS2] Eloquent Elusor
 ## Installation
 ### Installation from Packages
 
-Open a terminal, clone the repository, update the dependencies and build the packages:
+Open a terminal, clone the repository:
 ~~~
-	cd ~/ros2_ws/src/ #use your current ros2 workspace folder
-	git clone https://github.com/khadijaAssem/VAUV.git
-	cd ../
-	rosdep install --from-paths src --ignore-src -r -y
-	colcon build --symlink-install
-	source ~/.bashrc
+	cd ~/ros2_ws/ #use your current ros2 workspace folder
+	git clone https://github.com/VorteX-co/VAUV.git
 ~~~   
 
 ### Building from Source
 
 #### Dependencies
 
-- [Robot Operating System (ROS)](http://wiki.ros.org) (middleware for robotics).
+- [Colcon](https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/)
+~~~
+	sudo apt install python3-colcon-common-extensions
+~~~ 
+- [Robot Operating System (ROS)](https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/) (Install Eloquent as Debain Package).
 
 #### Building
 
-To build from source, clone the latest version from this repository into your  workspace and compile the package using
+To build from source, clone the latest version from this repository into your workspace and compile the package using
 ~~~
-	cd workspace/src
-	git clone https://github.com/khadijaAssem/VAUV.git
-	cd ../
-	rosdep install --from-paths . --ignore-src
+	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning
+	source /opt/ros/eloquent/setup.bash
 	colcon build --symlink-install
 ~~~
 
 ## Usage
 
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
 Run the main node with
 ~~~
-	ros2 launch ros_package_template ros_package_template.launch.py
+	source install/setup.bash
+	ros2 run mission_planning class_name
 ~~~
+or launch file with
+~~~
+	ros2 launch mission_planning launch_file_name.launch.py
+~~~
+
 ## Config files
 
 ...
