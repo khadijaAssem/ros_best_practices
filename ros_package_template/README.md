@@ -45,16 +45,20 @@ Open a terminal, clone the repository
 
 To build from source, clone the latest version from this repository into your workspace and compile the package using 
 ~~~
-	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning
+	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning/src/
 	source /opt/ros/eloquent/setup.bash
 	colcon build --symlink-install
 ~~~
 
 ## Usage
 
-Run the main node with
+First go to project location and source
 ~~~
+	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning/src/
 	source install/setup.bash
+~~~
+Then we can start node by node with
+~~~
 	ros2 run mission_planning class_name
 ~~~
 or launch file with
