@@ -51,11 +51,6 @@ To build from source, clone the latest version from this repository into your  w
 	rosdep install --from-paths . --ignore-src
 	colcon build --symlink-install
 ~~~
-### Running in Docker
-
-Docker is a great way to run an application with all dependencies and libraries bundles together. 
-Make sure to [install Docker](https://docs.docker.com/get-docker/) first. 
-
 
 ## Usage
 
