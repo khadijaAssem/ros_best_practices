@@ -116,7 +116,7 @@ Maps each mission id to a corresponding finite state machine, Loops on each curr
 
 ...
 
-### Scheduler_Node
+### scheduler_node
 
 Takes task ID to schedule it, manages the available time for a series of tasks and determines which scheduled task to be executed.
 
@@ -137,7 +137,7 @@ Takes task ID to schedule it, manages the available time for a series of tasks a
 
 ...
 
-### Task_Failure_Handler_Node
+### task_failure_handler_node
 
 Takes the current executing task ID and Subscribes on sensor’s topics to get its readings, then publishes feedback on each task.
 
