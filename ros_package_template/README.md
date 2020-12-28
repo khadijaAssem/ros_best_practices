@@ -67,7 +67,11 @@ Run the main node with
 ~~~
 ## Config files
 
+...
+
 ## Launch files
+
+...
 
 ## Nodes
 
@@ -154,4 +158,4 @@ Takes the current executing task ID and Subscribes on sensor’s topics to get i
 
 ## Hardware
 
-This package is only for planning, So it doesn't use any sort of hardware.
+This package is only for planning, So it doesn't directly use any sort of hardware.
