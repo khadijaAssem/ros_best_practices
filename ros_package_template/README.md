@@ -12,7 +12,7 @@ The source code is released under a [GNU GENERAL PUBLIC LICENSE](https://github.
 Affiliation: [VorteX-Co](https://vortex-co.com/home)<br />
 Maintainer: vortex-co, info@vortex-co.com**
 
-The mission planning module package has been tested under [ROS] Eloquent Elusor on Ubuntu 18.04.
+The mission planning module package has been tested under [ROS2] Eloquent Elusor on Ubuntu 18.04.
 
 ## Table of contents
 * [Installation](#Installation)
@@ -73,15 +73,23 @@ Run the main node with
 
 ### task_manager_node
 
-Reads labeled camera feed ,detect the mission we are currently seeing and determine the next mission to be executed.
+Reads labeled camera feed ,detects the mission the AUV is currently seeing and determines the next mission to be executed.
 
 #### Subscribed Topics
 
+...
+
 #### Published Topics
+
+...
 
 #### Services
 
+...
+
 #### Parameters
+
+...
 
 ### task_controller_node
 
@@ -89,11 +97,19 @@ Maps each mission id to a corresponding finite state machine, Loops on each curr
 
 #### Subscribed Topics
 
+...
+
 #### Published Topics
+
+...
 
 #### Services
 
+...
+
 #### Parameters
+
+...
 
 ### Scheduler_Node
 
@@ -102,11 +118,19 @@ Takes task ID, manages the available time for a series of tasks and generates th
 
 #### Subscribed Topics
 
+...
+
 #### Published Topics
+
+...
 
 #### Services
 
+...
+
 #### Parameters
+
+...
 
 ### Task_Failure_Handler_Node
 
@@ -114,11 +138,19 @@ Takes the current executing task ID and Subscribes on sensor’s topics to get i
 
 #### Subscribed Topics	
 
+...
+
 #### Published Topics
 	
+...
+
 #### Services
 
+...
+
 #### Parameters
+
+...
 
 ## Hardware
 
