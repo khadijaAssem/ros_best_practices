@@ -25,7 +25,7 @@ The mission planning module package has been tested under [ROS2] Eloquent Elusor
 ## Installation
 ### Installation from Packages
 
-Open a terminal, clone the repository:
+Open a terminal, clone the repository
 ~~~
 	cd ~/ros2_ws/ #use your current ros2 workspace folder
 	git clone https://github.com/VorteX-co/VAUV.git
@@ -39,11 +39,11 @@ Open a terminal, clone the repository:
 ~~~
 	sudo apt install python3-colcon-common-extensions
 ~~~ 
-- [Robot Operating System (ROS)](https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/) (Install Eloquent as Debain Package).
+- [Robot Operating System (ROS2)](https://index.ros.org/doc/ros2/Installation/Eloquent/Linux-Install-Debians/) (Install Eloquent as Debian Package).
 
 #### Building
 
-To build from source, clone the latest version from this repository into your workspace and compile the package using:
+To build from source, clone the latest version from this repository into your workspace and compile the package using 
 ~~~
 	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning
 	source /opt/ros/eloquent/setup.bash
