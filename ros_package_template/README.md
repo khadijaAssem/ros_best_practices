@@ -52,7 +52,7 @@ To build from source, clone the latest version from this repository into your wo
 
 ## Usage
 
-First go to project location and source
+First go to project location and source it
 ~~~
 	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning/src/
 	source install/setup.bash
