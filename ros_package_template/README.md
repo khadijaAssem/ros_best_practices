@@ -1,193 +1,125 @@
-# Package Name
+# Mission Planning Package
 
-## Overview
+## description
 
-This is a template: replace, remove, and add where required. Describe here what this package does and what it's meant for in a few sentences.
-
-**Keywords:** example, package, template
-
-Or, add some keywords to the Bitbucket or GitHub repository.
+This module takes the data from visual and sensory perceptions then sends it to controller with the feedback from task failure handler which has the threshold for all missions to be able to identify the mission and sends its ID to scheduler to schedule it depends on its priority, finally it passes its ID to global planning to execute.
 
 ### License
 
-The source code is released under a [BSD 3-Clause license](ros_package_template/LICENSE).
+The source code is released under a [GNU GENERAL PUBLIC LICENSE](https://github.com/fatma-mohamed-98/VAUV/blob/master/LICENSE).
 
-**Author: Péter Fankhauser<br />
-Affiliation: [ANYbotics](https://www.anybotics.com/)<br />
-Maintainer: Péter Fankhauser, pfankhauser@anybotics.com**
+**Author: vortex-co<br />
+Affiliation: [VorteX-Co](https://vortex-co.com/home)<br />
+Maintainer: vortex-co, info@vortex-co.com**
 
-The PACKAGE NAME package has been tested under [ROS] Indigo, Melodic and Noetic on respectively Ubuntu 14.04, 18.04 and 20.04.
-This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
+The mission planning module package has been tested under [ROS] Eloquent Elusor on Ubuntu 18.04.
 
-[![Build Status](http://rsl-ci.ethz.ch/buildStatus/icon?job=ros_best_practices)](http://rsl-ci.ethz.ch/job/ros_best_practices/)
-
-
-![Example image](doc/example.jpg)
-
-
-### Publications
-
-If you use this work in an academic context, please cite the following publication(s):
-
-* P. Fankhauser, M. Bloesch, C. Gehring, M. Hutter, and R. Siegwart: **PAPER TITLE**. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2015. ([PDF](http://dx.doi.org/10.3929/ethz-a-010173654))
-
-        @inproceedings{Fankhauser2015,
-            author = {Fankhauser, P\'{e}ter and Hutter, Marco},
-            booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-            title = {{PAPER TITLE}},
-            publisher = {IEEE},
-            year = {2015}
-        }
+## Table of contents
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Config files](#Config-files)
+* [Launch files](#Launch-files)
+* [Hardware](#hardware)
 
 
 ## Installation
-
 ### Installation from Packages
 
-To install all packages from the this repository as Debian packages use
-
-    sudo apt-get install ros-noetic-...
-    
-Or better, use `rosdep`:
-
-	sudo rosdep install --from-paths src
+Open a terminal, clone the repository, update the dependencies and build the packages:
+~~~
+	cd ~/ros2_ws/src/ #use your current ros2 workspace folder
+	git clone https://github.com/khadijaAssem/VAUV.git
+	cd ../
+	rosdep install --from-paths src --ignore-src -r -y
+	colcon build --symlink-install
+	source ~/.bashrc
+~~~   
 
 ### Building from Source
 
 #### Dependencies
 
-- [Robot Operating System (ROS)](http://wiki.ros.org) (middleware for robotics),
-- [Eigen] (linear algebra library)
-
-	sudo rosdep install --from-paths src
+- [Robot Operating System (ROS)](http://wiki.ros.org) (middleware for robotics).
 
 #### Building
 
-To build from source, clone the latest version from this repository into your catkin workspace and compile the package using
-
-	cd catkin_workspace/src
-	git clone https://github.com/ethz-asl/ros_best_practices.git
+To build from source, clone the latest version from this repository into your  workspace and compile the package using
+~~~
+	cd workspace/src
+	git clone https://github.com/khadijaAssem/VAUV.git
 	cd ../
 	rosdep install --from-paths . --ignore-src
-	catkin_make
-
+	colcon build --symlink-install
+~~~
 ### Running in Docker
 
 Docker is a great way to run an application with all dependencies and libraries bundles together. 
 Make sure to [install Docker](https://docs.docker.com/get-docker/) first. 
 
-First, spin up a simple container:
-
-	docker run -ti --rm --name ros-container ros:noetic bash
-	
-This downloads the `ros:noetic` image from the Docker Hub, indicates that it requires an interactive terminal (`-t, -i`), gives it a name (`--name`), removes it after you exit the container (`--rm`) and runs a command (`bash`).
-
-Now, create a catkin workspace, clone the package, build it, done!
-
-	apt-get update && apt-get install -y git
-	mkdir -p /ws/src && cd /ws/src
-	git clone https://github.com/leggedrobotics/ros_best_practices.git
-	cd ..
-	rosdep install --from-path src
-	catkin_make
-	source devel/setup.bash
-	roslaunch ros_package_template ros_package_template.launch
-
-### Unit Tests
-
-Run the unit tests with
-
-	catkin_make run_tests_ros_package_template
-
-### Static code analysis
-
-Run the static code analysis with
-
-	catkin_make roslint_ros_package_template
 
 ## Usage
 
-Describe the quickest way to run this software, for example:
+Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
 Run the main node with
-
-	roslaunch ros_package_template ros_package_template.launch
-
+~~~
+	ros2 launch ros_package_template ros_package_template.launch.py
+~~~
 ## Config files
-
-Config file folder/set 1
-
-* **config_file_1.yaml** Shortly explain the content of this config file
-
-Config file folder/set 2
-
-* **...**
 
 ## Launch files
 
-* **launch_file_1.launch:** shortly explain what is launched (e.g standard simulation, simulation with gdb,...)
-
-     Argument set 1
-
-     - **`argument_1`** Short description (e.g. as commented in launch file). Default: `default_value`.
-
-    Argument set 2
-
-    - **`...`**
-
-* **...**
-
 ## Nodes
 
-### ros_package_template
+### task_manager_node
 
-Reads temperature measurements and computed the average.
+Reads labeled camera feed ,detect the mission we are currently seeing and determine the next mission to be executed.
+
+#### Subscribed Topics
+
+#### Published Topics
+
+#### Services
+
+#### Parameters
+
+### task_controller_node
+
+Maps each mission id to a corresponding finite state machine, Loops on each current state in the FSM until this state changes based on the feedback from the task failure handler until the FSM is finished and another one takes its place.
+
+#### Subscribed Topics
+
+#### Published Topics
+
+#### Services
+
+#### Parameters
+
+### Scheduler_Node
+
+Takes task ID, manages the available time for a series of tasks and generates the current task ID.
 
 
 #### Subscribed Topics
 
-* **`/temperature`** ([sensor_msgs/Temperature])
-
-	The temperature measurements from which the average is computed.
-
-
 #### Published Topics
-
-...
-
 
 #### Services
 
-* **`get_average`** ([std_srvs/Trigger])
+#### Parameters
 
-	Returns information about the current average. For example, you can trigger the computation from the console with
+### Task_Failure_Handler_Node
 
-		rosservice call /ros_package_template/get_average
+Takes the current executing task ID and Subscribes on sensor’s topics to get its readings, then publishes feedback on each task.
 
+#### Subscribed Topics	
+
+#### Published Topics
+	
+#### Services
 
 #### Parameters
 
-* **`subscriber_topic`** (string, default: "/temperature")
+## Hardware
 
-	The name of the input topic.
-
-* **`cache_size`** (int, default: 200, min: 0, max: 1000)
-
-	The size of the cache.
-
-
-### NODE_B_NAME
-
-...
-
-
-## Bugs & Feature Requests
-
-Please report bugs and request features using the [Issue Tracker](https://github.com/ethz-asl/ros_best_practices/issues).
-
-
-[ROS]: http://www.ros.org
-[rviz]: http://wiki.ros.org/rviz
-[Eigen]: http://eigen.tuxfamily.org
-[std_srvs/Trigger]: http://docs.ros.org/api/std_srvs/html/srv/Trigger.html
-[sensor_msgs/Temperature]: http://docs.ros.org/api/sensor_msgs/html/msg/Temperature.html
+This package is only for planning, So it doesn't use any sort of hardware.
