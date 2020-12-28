@@ -2,7 +2,7 @@
 
 ## Description
 
-This module takes the data from visual and sensory perceptions then sends it to controller with the feedback from task failure handler which has the threshold for all missions to be able to identify the mission and sends its ID to scheduler to schedule it depends on its priority, finally it passes its ID to global planning to execute.
+This module starts with the planning layer which contains task manager, it sends next mission to be executed to the execution layer based on the labeled camera feed, in the execution layer the task controller takes input (from task manager) the next mission to be executed and the task feedback ( from task failure handler which takes its readings from sensor fusion), then splits the mission to primitive tasks in correct order to stack them in the scheduler, the scheduler  sends tasks id to global planner to start execution and also task scheduler sends task id to task failure handler for monitoring the mission execution, the feedback handler takes input (from scheduler) the current executing mission ID to help knowing what feedback threshold to expect and which sensors to get its readings from, then sends feedback on each task to task controller and the task controller provide a general feedback from several tasks connected to the same mission and send this general feedback to task manager to be able to log the status in log file, here we have two cases one in case of success therefore there is nothing to be done, and two in case of failure, the task manager decides to redo the mission with a number of attempts and it may also delete the mission and its dependent mission from the scheduler.
 
 ### License
 
