@@ -52,16 +52,16 @@ To build from source, clone the latest version from this repository into your wo
 
 ## Usage
 
-First go to project location and source it
+- First go to project location and source it
 ~~~
 	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning/src/
 	source install/setup.bash
 ~~~
-Then we can start node by node with
+- Then we can start node by node with
 ~~~
 	ros2 run mission_planning class_name
 ~~~
-or launch file with
+- or launch file with
 ~~~
 	ros2 launch mission_planning launch_file_name.launch.py
 ~~~
