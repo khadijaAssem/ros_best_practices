@@ -100,19 +100,19 @@ Reads labeled camera feed ,detects the mission the AUV is currently seeing and d
 
 Maps each mission id to a corresponding finite state machine, Loops on each current state in the FSM until this state changes based on the feedback from the task failure handler until the FSM is finished and another one takes its place.
 
-#### Subscribed Topics
+#### - Subscribed Topics
 
 ...
 
-#### Published Topics
+#### - Published Topics
 
 ...
 
-#### Services
+#### - Services
 
 ...
 
-#### Parameters
+#### - Parameters
 
 ...
 
@@ -121,19 +121,19 @@ Maps each mission id to a corresponding finite state machine, Loops on each curr
 Takes task ID, manages the available time for a series of tasks and generates the current task ID.
 
 
-#### Subscribed Topics
+#### - Subscribed Topics
 
 ...
 
-#### Published Topics
+#### - Published Topics
 
 ...
 
-#### Services
+#### - Services
 
 ...
 
-#### Parameters
+#### - Parameters
 
 ...
 
@@ -141,19 +141,19 @@ Takes task ID, manages the available time for a series of tasks and generates th
 
 Takes the current executing task ID and Subscribes on sensor’s topics to get its readings, then publishes feedback on each task.
 
-#### Subscribed Topics	
+#### - Subscribed Topics	
 
 ...
 
-#### Published Topics
+#### - Published Topics
 	
 ...
 
-#### Services
+#### - Services
 
 ...
 
-#### Parameters
+#### - Parameters
 
 ...
 
