@@ -43,7 +43,7 @@ Open a terminal, clone the repository:
 
 #### Building
 
-To build from source, clone the latest version from this repository into your workspace and compile the package using
+To build from source, clone the latest version from this repository into your workspace and compile the package using:
 ~~~
 	cd ~/ros2_ws/VAUV/Software/vortex_ws/src/mission_planning
 	source /opt/ros/eloquent/setup.bash
