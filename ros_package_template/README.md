@@ -1,6 +1,6 @@
 # Mission Planning Package
 
-## description
+## Description
 
 This module takes the data from visual and sensory perceptions then sends it to controller with the feedback from task failure handler which has the threshold for all missions to be able to identify the mission and sends its ID to scheduler to schedule it depends on its priority, finally it passes its ID to global planning to execute.
 
